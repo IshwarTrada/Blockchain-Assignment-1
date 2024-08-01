@@ -201,7 +201,6 @@ console.log(findSmallestElement([7])); // Output: 7
 
 // Q - 10
 // Create a function `reverseString` that takes a string and returns the string reversed
-// program to generate fibonacci series up to n terms
 function reverseString(str) {
   // Use the split, reverse, and join methods to reverse the string
   return str.split("").reverse().join("");
@@ -210,19 +209,23 @@ console.log(reverseString("hello")); // Output: "olleh"
 
 // Q - 11
 //  Write a function `fibonacci` that takes a number `n` and returns the `n`th number in the Fibonacci sequence.
-const number = 5;
-let n1 = 0,
-  n2 = 1,
-  nextTerm;
+function fibonacci(n) {
+  if (n <= 0) {
+      throw new Error("The input must be a positive integer.");
+  }
+  if (n === 1) return 0;
+  if (n === 2) return 1;
 
-console.log("Fibonacci Series:");
-
-for (let i = 1; i <= number; i++) {
-  console.log(n1);
-  nextTerm = n1 + n2;
-  n1 = n2;
-  n2 = nextTerm;
+  let a = 0;
+  let b = 1;
+  for (let i = 3; i <= n; i++) {
+      let temp = a + b;
+      a = b;
+      b = temp;
+  }
+  return b;
 }
+ console.log(fibonacci(5)); // Output: 3
 
 // Q - 12
 // Implement a function `removeDuplicates` that takes an array and returns a new array with duplicate values removed.
